@@ -1,0 +1,37 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>barCodeRead</title>
+</head>
+<body>
+  @using (Html.BeginForm("BarCodeRead", "BarCode", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+{
+    <div class="row">
+
+        <div class="col-md-3"></div>
+        <div class="col-md-3">
+            <div align="center">
+                <br />
+                <input type="file" name="barCodeUpload" class="form-control" id="barCodeUpload" /><br />
+                <br />
+                <input type="submit" class="btn btn-primary" id="UploadButton" value="Upload">
+                <br />
+                <br />
+                <span class="btn alert-danger">@ViewBag.ErrorMessage</span>
+                <br />
+                <input type="text" class="form-control col-md-8" value="@ViewBag.BarCode" /><br />
+                <br />
+                <img type="image" src="@ViewBag.BarImage" />
+            </div>
+
+        </div>
+    </div>
+}  
+</body>
+</html>

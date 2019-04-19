@@ -1,0 +1,42 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>BarCodeGeneration</title>
+</head>
+<body>
+    @using (Html.BeginForm("GenerateBarCode", "BarCode", FormMethod.Post))
+    {
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <h2>Generate Bar Code</h2>
+                <input type="text" name="barcode" class="form-control col-4" id="textCode" />
+                <br /><br />
+                <input type="submit" class="btn btn-primary" id="btnGenerate" value="Generate" />
+                <hr />
+
+                @if (ViewBag.BarcodeImage != null)
+                {
+                    <img src="@ViewBag.BarcodeImage" alt="" />
+                }
+            </div>
+        </div>
+        
+    }  
+
+    @using (Html.BeginForm("barCodeRead", "BarCode", FormMethod.Post))
+    {
+       
+                <input type="submit" class="btn btn-primary" id="btnRead" value="Read" />
+                <hr />
+
+
+    }  
+</body>
+</html>

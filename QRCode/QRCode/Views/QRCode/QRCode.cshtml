@@ -1,0 +1,43 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>QRCodeGeneration</title>
+</head>
+<body>
+    @using (Html.BeginForm("GenerateQRCode", "QRCode", FormMethod.Post))
+    {
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <h2>Generate QR Code</h2>
+                <input type="text" name="QRcode" class="form-control col-4" id="textCode" />
+                <br /><br />
+                <input type="submit" class="btn btn-primary" id="btnGenerate" value="Generate" />
+                <hr />
+
+                @if (ViewBag.QRImage != null)
+                {
+                    <img src="@ViewBag.QRImage" alt="" />
+                }
+            </div>
+        </div>
+
+    }
+
+    @using (Html.BeginForm("QRCodeRead", "QRCode", FormMethod.Post))
+    {
+
+        <input type="submit" class="btn btn-primary" id="btnRead" value="Read" />
+        <hr />
+
+
+    }
+</body>
+
+</html>

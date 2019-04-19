@@ -1,0 +1,37 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>barCodeRead</title>
+</head>
+<body>
+    @using (Html.BeginForm("QRCodeReader", "QRCode", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+    {
+        <div class="row">
+
+            <div class="col-md-3"></div>
+            <div class="col-md-3">
+                <div align="center">
+                    <br />
+                    <input type="file" name="qrUpload" class="form-control" id="qrUpload" /><br />
+                    <br />
+                    <input type="submit" class="btn btn-primary" id="UploadButton" value="Upload">
+                    <br />
+                    <br />
+                    <span class="btn alert-danger">@ViewBag.ErrorMessage</span>
+                    <br />
+                    <input type="text" class="form-control col-md-8" value="@ViewBag.QRCode" /><br />
+                    <br />
+                    <img type="image" src="@ViewBag.QRImage" />
+                </div>
+
+            </div>
+        </div>
+    }
+</body>
+</html>
